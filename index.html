@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Clean_Snake</title>
+
+        <script src="phaser.min.js"></script>   
+        
+    </head>
+    <body> 
+
+    <script type="text/javascript">
+
+var game = new Phaser.Game(640, 480, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    game.load.image('asset', 'assets/asset.png');
+
+}
+
+function create() {
+
+    this.player = game.add.sprite(100, 100, 'asset');
+
+    this.cursors = game.input.keyboard.createCursorKeys();
+                
+}
+
+function update() {
+        if (this.cursors.left.isDown) {
+            this.player.x -= 1;
+        }
+        else if (this.cursors.right.isDown) {
+            this.player.x += 1;
+        } 
+        else if (this.cursors.down.isDown) { 
+            this.player.y += 1;
+        }
+        else if (this.cursors.up.isDown){
+            this.player.y -= 1;
+        }   
+}
+
+    </script>
+    </body>
+</html>
